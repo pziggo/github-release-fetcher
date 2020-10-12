@@ -1,0 +1,13 @@
+{
+    "github_api_url": "https://api.github.com/repos/{{ owner }}/{{ repo }}/releases/latest",
+    "projects": [
+        {
+            "owner": "bazelbuild",
+            "repo": "bazel"
+        },
+        {
+            "owner": "bazelbuild",
+            "repo": "rules_pkg"
+        }
+    ]
+}

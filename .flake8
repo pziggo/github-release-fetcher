@@ -1,0 +1,8 @@
+[flake8]
+application-import-names = github_release_fetcher, tests
+ignore = E203,W503
+import-order-style = google
+max-complexity = 10
+max-line-length = 88
+per-file-ignores = tests/*:S101
+select = B,B9,BLK,C,E,F,I,S,W
