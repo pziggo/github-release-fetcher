@@ -15,10 +15,10 @@ from . import __version__, github
     required=True,
 )
 @click.version_option(version=__version__)
-def main(owner, repository):
+def main(owner: str, repository: str) -> None:
     """The Github releases fetcher tool."""
     data = github.latest_release(owner=owner, repository=repository)
 
-    version = data["tag_name"]
+    version = data.tag_name
 
     click.echo(version)
