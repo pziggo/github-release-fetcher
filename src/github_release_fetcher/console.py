@@ -1,3 +1,4 @@
+"""Command-line interface for github_release_fetcher."""
 import click
 
 from . import __version__, github

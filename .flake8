@@ -1,8 +1,9 @@
 [flake8]
 application-import-names = github_release_fetcher, tests
+docstring-convention = google
 ignore = E203,W503
 import-order-style = google
 max-complexity = 10
 max-line-length = 88
 per-file-ignores = tests/*:S101
-select = ANN,B,B9,BLK,C,E,F,I,S,W
+select = ANN,B,B9,BLK,C,D,DAR,E,F,I,S,W
