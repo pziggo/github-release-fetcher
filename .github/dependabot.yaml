@@ -11,6 +11,17 @@ updates:
     labels:
       - "dependencies"
 
+  # Maintain pip dependencies while running Github Actions
+  - package-ecosystem: "pip"
+    directory: "/.github/workflows"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "pip github-actions"
+      include: "scope"
+    labels:
+      - "dependencies"
+
   # Maintain dependencies for Poetry
   - package-ecosystem: "pip"
     directory: "/"

@@ -19,6 +19,6 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         architecture: x64
-    - run: pip install nox==2020.8.22
-    - run: pip install poetry==1.0.10
+    - run: pip install --constraint=.github/workflows/constraints.txt nox
+    - run: pip install --constraint=.github/workflows/constraints.txt poetry
     - run: nox
