@@ -5,6 +5,7 @@ import click
 import pytest
 
 from github_release_fetcher import github
+from github_release_fetcher.release import Release
 
 
 def test_latest_release_uses_given_repository(mock_requests_get: Mock) -> None:
@@ -17,7 +18,7 @@ def test_latest_release_uses_given_repository(mock_requests_get: Mock) -> None:
 def test_latest_release_returns_release(mock_requests_get: Mock) -> None:
     """It returns an instance of type Release."""
     release = github.latest_release()
-    assert isinstance(release, github.Release)
+    assert isinstance(release, Release)
 
 
 def test_latest_release_handles_validation_errors(mock_requests_get: Mock) -> None:
