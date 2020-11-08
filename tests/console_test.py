@@ -9,6 +9,7 @@ from pytest_mock import MockFixture
 import requests
 
 from github_release_fetcher import console
+from .test_data import dummy_version
 
 FAKE_CONSOLE_OPTIONS: List[str] = ["--owner=foo", "--repository=bar"]
 
@@ -40,7 +41,7 @@ def test_main_fails_missing_option(runner: CliRunner, mock_requests_get: Mock) -
 def test_main_prints_version(runner: CliRunner, mock_requests_get: Mock) -> None:
     """It prints the version from the mocked json return."""
     result = runner.invoke(console.main, FAKE_CONSOLE_OPTIONS)
-    assert "0.1.0" in result.output
+    assert dummy_version in result.output
 
 
 def test_main_invokes_requests_get(runner: CliRunner, mock_requests_get: Mock) -> None:
