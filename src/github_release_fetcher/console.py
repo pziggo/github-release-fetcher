@@ -22,4 +22,7 @@ def main(owner: str, repository: str) -> None:
 
     version = data.tag_name
 
-    click.echo(version)
+    click.echo("Version: {}".format(version))
+    click.echo("Assets:")
+    for asset in data.assets:
+        click.echo(asset)
