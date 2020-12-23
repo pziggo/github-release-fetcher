@@ -36,6 +36,13 @@ def black(session: Session) -> None:
     session.run("black", *args)
 
 
+@nox.session(python=["3.9"])
+def coverage(session: Session) -> None:
+    """Generate coverage data."""
+    install_with_constraints(session, "coverage[toml]")
+    session.run("coverage", "xml", "--fail-under=0")
+
+
 @nox.session(python=python)
 def lint(session: Session) -> None:
     """Run darglint and flake8 linters."""
