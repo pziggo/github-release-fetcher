@@ -13,7 +13,6 @@ description = "Atomic file writes."
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-marker = "sys_platform == \"win32\""
 
 [[package]]
 name = "attrs"
@@ -24,10 +23,10 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [package.extras]
-dev = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface", "furo", "sphinx", "pre-commit"]
+dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface", "furo", "sphinx", "pre-commit"]
 docs = ["furo", "sphinx", "zope.interface"]
-tests = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
-tests_no_zope = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
+tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
+tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
 
 [[package]]
 name = "bandit"
@@ -38,7 +37,7 @@ optional = false
 python-versions = ">=3.5"
 
 [package.dependencies]
-colorama = ">=0.3.9"
+colorama = {version = ">=0.3.9", markers = "platform_system == \"Windows\""}
 GitPython = ">=1.0.1"
 PyYAML = ">=5.3.1"
 six = ">=1.10.0"
@@ -52,13 +51,10 @@ category = "dev"
 optional = false
 python-versions = ">=3.6"
 
-[package.extras]
-colorama = ["colorama (>=0.4.3)"]
-d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
-
 [package.dependencies]
 appdirs = "*"
 click = ">=7.1.2"
+dataclasses = {version = ">=0.6", markers = "python_version < \"3.7\""}
 mypy-extensions = ">=0.4.3"
 pathspec = ">=0.6,<1"
 regex = ">=2020.1.8"
@@ -66,9 +62,9 @@ toml = ">=0.10.1"
 typed-ast = ">=1.4.0"
 typing-extensions = ">=3.7.4"
 
-[package.dependencies.dataclasses]
-version = ">=0.6"
-python = "<3.7"
+[package.extras]
+colorama = ["colorama (>=0.4.3)"]
+d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
 
 [[package]]
 name = "certifi"
@@ -101,7 +97,6 @@ description = "Cross-platform colored terminal text."
 category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-marker = "sys_platform == \"win32\" or platform_system == \"Windows\""
 
 [[package]]
 name = "coverage"
@@ -129,7 +124,6 @@ description = "A backport of the dataclasses module for Python 3.6"
 category = "dev"
 optional = false
 python-versions = "*"
-marker = "python_version < \"3.7\""
 
 [[package]]
 name = "dparse"
@@ -139,13 +133,13 @@ category = "dev"
 optional = false
 python-versions = ">=3.5"
 
-[package.extras]
-pipenv = ["pipenv"]
-
 [package.dependencies]
 packaging = "*"
 pyyaml = "*"
 toml = "*"
+
+[package.extras]
+pipenv = ["pipenv"]
 
 [[package]]
 name = "flake8"
@@ -156,13 +150,10 @@ optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
 
 [package.dependencies]
+importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 mccabe = ">=0.6.0,<0.7.0"
 pycodestyle = ">=2.6.0a1,<2.7.0"
 pyflakes = ">=2.2.0,<2.3.0"
-
-[package.dependencies.importlib-metadata]
-version = "*"
-python = "<3.8"
 
 [[package]]
 name = "flake8-annotations"
@@ -174,10 +165,7 @@ python-versions = ">=3.6.1,<4.0.0"
 
 [package.dependencies]
 flake8 = ">=3.7,<3.9"
-
-[package.dependencies.typed-ast]
-version = ">=1.4,<2.0"
-python = "<3.8"
+typed-ast = {version = ">=1.4,<2.0", markers = "python_version < \"3.8\""}
 
 [[package]]
 name = "flake8-bandit"
@@ -213,12 +201,12 @@ category = "dev"
 optional = false
 python-versions = ">=3.6"
 
-[package.extras]
-dev = ["coverage", "black", "hypothesis", "hypothesmith"]
-
 [package.dependencies]
 attrs = ">=19.2.0"
 flake8 = ">=3.0.0"
+
+[package.extras]
+dev = ["coverage", "black", "hypothesis", "hypothesmith"]
 
 [[package]]
 name = "flake8-docstrings"
@@ -242,7 +230,6 @@ python-versions = "*"
 
 [package.dependencies]
 pycodestyle = "*"
-setuptools = "*"
 
 [[package]]
 name = "flake8-polyfill"
@@ -292,18 +279,14 @@ description = "Read metadata from Python packages"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
-marker = "python_version < \"3.8\""
+
+[package.dependencies]
+typing-extensions = {version = ">=3.6.4", markers = "python_version < \"3.8\""}
+zipp = ">=0.5"
 
 [package.extras]
 docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
-testing = ["pytest (>=3.5,<3.7.3 || >3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "jaraco.test (>=3.2.0)", "packaging", "pep517", "pyfakefs", "flufl.flake8", "pytest-black (>=0.3.7)", "pytest-mypy", "importlib-resources (>=1.3)"]
-
-[package.dependencies]
-zipp = ">=0.5"
-
-[package.dependencies.typing-extensions]
-version = ">=3.6.4"
-python = "<3.8"
+testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "jaraco.test (>=3.2.0)", "packaging", "pep517", "pyfakefs", "flufl.flake8", "pytest-black (>=0.3.7)", "pytest-mypy", "importlib-resources (>=1.3)"]
 
 [[package]]
 name = "iniconfig"
@@ -329,13 +312,13 @@ category = "dev"
 optional = false
 python-versions = ">=3.5"
 
-[package.extras]
-dmypy = ["psutil (>=4.0)"]
-
 [package.dependencies]
 mypy-extensions = ">=0.4.3,<0.5.0"
 typed-ast = ">=1.4.0,<1.5.0"
 typing-extensions = ">=3.7.4"
+
+[package.extras]
+dmypy = ["psutil (>=4.0)"]
 
 [[package]]
 name = "mypy-extensions"
@@ -391,13 +374,11 @@ category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
+[package.dependencies]
+importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
+
 [package.extras]
 dev = ["pre-commit", "tox"]
-
-[package.dependencies]
-[package.dependencies.importlib-metadata]
-version = ">=0.12"
-python = "<3.8"
 
 [[package]]
 name = "py"
@@ -450,22 +431,19 @@ category = "dev"
 optional = false
 python-versions = ">=3.6"
 
-[package.extras]
-testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
-
 [package.dependencies]
-atomicwrites = ">=1.0"
+atomicwrites = {version = ">=1.0", markers = "sys_platform == \"win32\""}
 attrs = ">=19.2.0"
-colorama = "*"
+colorama = {version = "*", markers = "sys_platform == \"win32\""}
+importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
 iniconfig = "*"
 packaging = "*"
 pluggy = ">=0.12,<1.0.0a1"
 py = ">=1.8.2"
 toml = "*"
 
-[package.dependencies.importlib-metadata]
-version = ">=0.12"
-python = "<3.8"
+[package.extras]
+testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
 name = "pytest-cov"
@@ -475,12 +453,12 @@ category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
-[package.extras]
-testing = ["fields", "hunter", "process-tests (2.0.2)", "six", "pytest-xdist", "virtualenv"]
-
 [package.dependencies]
 coverage = ">=4.4"
 pytest = ">=4.6"
+
+[package.extras]
+testing = ["fields", "hunter", "process-tests (==2.0.2)", "six", "pytest-xdist", "virtualenv"]
 
 [[package]]
 name = "pytest-mock"
@@ -490,11 +468,11 @@ category = "dev"
 optional = false
 python-versions = ">=3.5"
 
-[package.extras]
-dev = ["pre-commit", "tox", "pytest-asyncio"]
-
 [package.dependencies]
 pytest = ">=5.0"
+
+[package.extras]
+dev = ["pre-commit", "tox", "pytest-asyncio"]
 
 [[package]]
 name = "pyyaml"
@@ -520,19 +498,19 @@ category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
-[package.extras]
-security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
-socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7)", "win-inet-pton"]
-
 [package.dependencies]
 certifi = ">=2017.4.17"
 chardet = ">=3.0.2,<5"
 idna = ">=2.5,<3"
 urllib3 = ">=1.21.1,<1.27"
 
+[package.extras]
+security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
+socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
+
 [[package]]
 name = "safety"
-version = "1.10.1"
+version = "1.10.2"
 description = "Checks installed dependencies for known vulnerabilities."
 category = "dev"
 optional = false
@@ -543,7 +521,6 @@ Click = ">=6.0"
 dparse = ">=0.5.1"
 packaging = "*"
 requests = "*"
-setuptools = "*"
 
 [[package]]
 name = "six"
@@ -578,11 +555,8 @@ optional = false
 python-versions = ">=3.6"
 
 [package.dependencies]
+importlib-metadata = {version = ">=1.7.0", markers = "python_version < \"3.8\""}
 pbr = ">=2.0.0,<2.1.0 || >2.1.0"
-
-[package.dependencies.importlib-metadata]
-version = ">=1.7.0"
-python = "<3.8"
 
 [[package]]
 name = "toml"
@@ -631,7 +605,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
 [package.extras]
 brotli = ["brotlipy (>=0.6.0)"]
 secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
-socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7,<2.0)"]
+socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "xdoctest"
@@ -641,15 +615,15 @@ category = "dev"
 optional = false
 python-versions = "*"
 
+[package.dependencies]
+six = "*"
+
 [package.extras]
 all = ["six", "pytest", "pytest-cov", "codecov", "scikit-build", "cmake", "ninja", "pybind11", "pygments", "colorama", "nbformat", "nbconvert", "jupyter-client", "ipython", "ipykernel"]
 colors = ["pygments", "colorama"]
 jupyter = ["nbformat", "nbconvert", "jupyter-client", "ipython", "ipykernel"]
 optional = ["pygments", "colorama", "nbformat", "nbconvert", "jupyter-client", "ipython", "ipykernel"]
 tests = ["pytest", "pytest-cov", "codecov", "scikit-build", "cmake", "ninja", "pybind11", "nbformat", "nbconvert", "jupyter-client", "ipython", "ipykernel"]
-
-[package.dependencies]
-six = "*"
 
 [[package]]
 name = "zipp"
@@ -658,16 +632,15 @@ description = "Backport of pathlib-compatible object wrapper for zip files"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
-marker = "python_version < \"3.8\""
 
 [package.extras]
 docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
-testing = ["pytest (>=3.5,<3.7.3 || >3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "jaraco.test (>=3.2.0)", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy"]
+testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "jaraco.test (>=3.2.0)", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy"]
 
 [metadata]
-lock-version = "1.0"
+lock-version = "1.1"
 python-versions = "^3.6.1"
-content-hash = "0b53c7184453349e05886f9c2b65ecd36925cbdd6db6ca35e452b5948feca214"
+content-hash = "b29d41e28ed3b02b4779c1033fc5e923c5ca166c8761db0ba6bbea0172879c93"
 
 [metadata.files]
 appdirs = [
@@ -905,6 +878,8 @@ pyyaml = [
     {file = "PyYAML-5.3.1-cp37-cp37m-win_amd64.whl", hash = "sha256:73f099454b799e05e5ab51423c7bcf361c58d3206fa7b0d555426b1f4d9a3eaf"},
     {file = "PyYAML-5.3.1-cp38-cp38-win32.whl", hash = "sha256:06a0d7ba600ce0b2d2fe2e78453a470b5a6e000a985dd4a4e54e436cc36b0e97"},
     {file = "PyYAML-5.3.1-cp38-cp38-win_amd64.whl", hash = "sha256:95f71d2af0ff4227885f7a6605c37fd53d3a106fcab511b8860ecca9fcf400ee"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win32.whl", hash = "sha256:ad9c67312c84def58f3c04504727ca879cb0013b2517c85a9a253f0cb6380c0a"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win_amd64.whl", hash = "sha256:6034f55dab5fea9e53f436aa68fa3ace2634918e8b5994d82f3621c04ff5ed2e"},
     {file = "PyYAML-5.3.1.tar.gz", hash = "sha256:b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"},
 ]
 regex = [
@@ -955,8 +930,8 @@ requests = [
     {file = "requests-2.25.1.tar.gz", hash = "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"},
 ]
 safety = [
-    {file = "safety-1.10.1-py2.py3-none-any.whl", hash = "sha256:6e86b4bd47ea6e8f623045bd3687342fb5ac402fb37147fca82fd5a752ec3afc"},
-    {file = "safety-1.10.1.tar.gz", hash = "sha256:f2ab09596ebcbb4012fb7345d2dbda28319c8f3c2731ef6e27ba206b279c13b2"},
+    {file = "safety-1.10.2-py2.py3-none-any.whl", hash = "sha256:66972e94bc7252d156386ffbe89ceeecdf82cebe1f2bf4e1375cc7fe473b54fe"},
+    {file = "safety-1.10.2.tar.gz", hash = "sha256:9e35be579f7589cde300faaf947eefb6a4c1a63ae2a79edb370805ef99487c5f"},
 ]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
