@@ -30,7 +30,7 @@ flake8-annotations = "^2.4.1"
 typeguard = "^2.10.0"
 flake8-docstrings = "^1.5.0"
 darglint = "^1.5.8"
-xdoctest = "^0.15.2"
+xdoctest = "^0.15.3"
 pep8-naming = "^0.11.1"
 
 [tool.poetry.scripts]
