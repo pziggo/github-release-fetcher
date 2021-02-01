@@ -609,7 +609,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "xdoctest"
-version = "0.15.3"
+version = "0.15.4"
 description = "A rewrite of the builtin doctest module"
 category = "dev"
 optional = false
@@ -640,7 +640,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.1"
-content-hash = "51d7dfae8910fefc2931fa31c27b8f8b81c8c96c3f6f2d85534b35601ec205d8"
+content-hash = "3fa694f56d7e5e7cbd6c637d87ba270f148bc941ea35b6e99662c4fbee654759"
 
 [metadata.files]
 appdirs = [
@@ -1007,9 +1007,9 @@ urllib3 = [
     {file = "urllib3-1.26.2.tar.gz", hash = "sha256:19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"},
 ]
 xdoctest = [
-    {file = "xdoctest-0.15.3-py2.py3-none-any.whl", hash = "sha256:3250d982e45611a238ca57f45d3efd22d65e21e378d508f2ebd98991e161d7e1"},
-    {file = "xdoctest-0.15.3-py3-none-any.whl", hash = "sha256:a857e1a6c069ae30cc080cc8f29a98edbb8b6e90da29fbe3898c2d454e32364a"},
-    {file = "xdoctest-0.15.3.tar.gz", hash = "sha256:342f69575490ffdcd0f26cd11a9f4f9d76fdc32d492f22eac79e87b0faa689b1"},
+    {file = "xdoctest-0.15.4-py2.py3-none-any.whl", hash = "sha256:4b91eb67e45e51a254ff9370adb72a0c82b08289844c95cfd3a1186d7ec4f694"},
+    {file = "xdoctest-0.15.4-py3-none-any.whl", hash = "sha256:33d4a12cf70da245ca3f71be9ef03e0615fa862826bf6a08e8f025ce693e496d"},
+    {file = "xdoctest-0.15.4.tar.gz", hash = "sha256:ef1f93d2147988d3cb6f35c026ec32aca971923f86945a775f61e2f8de8505d1"},
 ]
 zipp = [
     {file = "zipp-3.4.0-py3-none-any.whl", hash = "sha256:102c24ef8f171fd729d46599845e95c7ab894a4cf45f5de11a44cc7444fb1108"},
