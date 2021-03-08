@@ -157,7 +157,7 @@ pyflakes = ">=2.2.0,<2.3.0"
 
 [[package]]
 name = "flake8-annotations"
-version = "2.5.0"
+version = "2.6.0"
 description = "Flake8 Type Annotation Checks"
 category = "dev"
 optional = false
@@ -640,7 +640,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.1"
-content-hash = "19d3861543ffb05b1e458e30a128569f30d14eddc4d95ca90a6adf01c4f98122"
+content-hash = "7299e030bc27804e935dfd559c964693326c2b900dc06f30b6becfae98e5bdda"
 
 [metadata.files]
 appdirs = [
@@ -746,8 +746,8 @@ flake8 = [
     {file = "flake8-3.8.4.tar.gz", hash = "sha256:aadae8761ec651813c24be05c6f7b4680857ef6afaae4651a4eccaef97ce6c3b"},
 ]
 flake8-annotations = [
-    {file = "flake8-annotations-2.5.0.tar.gz", hash = "sha256:e17947a48a5b9f632fe0c72682fc797c385e451048e7dfb20139f448a074cb3e"},
-    {file = "flake8_annotations-2.5.0-py3-none-any.whl", hash = "sha256:3a377140556aecf11fa9f3bb18c10db01f5ea56dc79a730e2ec9b4f1f49e2055"},
+    {file = "flake8-annotations-2.6.0.tar.gz", hash = "sha256:bd0505616c0d85ebb45c6052d339c69f320d3f87fa079ab4e91a4f234a863d05"},
+    {file = "flake8_annotations-2.6.0-py3-none-any.whl", hash = "sha256:8968ff12f296433028ad561c680ccc03a7cd62576d100c3f1475e058b3c11b43"},
 ]
 flake8-bandit = [
     {file = "flake8_bandit-2.1.2.tar.gz", hash = "sha256:687fc8da2e4a239b206af2e54a90093572a60d0954f3054e23690739b0b0de3b"},
