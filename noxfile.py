@@ -66,7 +66,7 @@ def lint(session: Session) -> None:
 def mypy(session: Session) -> None:
     """Run static type checks using mypy."""
     args = session.posargs or locations
-    install_with_constraints(session, "mypy")
+    install_with_constraints(session, "mypy", "types-requests", "types-click")
     session.run("mypy", *args)
 
 
