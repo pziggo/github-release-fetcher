@@ -608,7 +608,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-requests"
-version = "2.25.6"
+version = "2.25.7"
 description = "Typing stubs for requests"
 category = "dev"
 optional = false
@@ -668,7 +668,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.1"
-content-hash = "72bd65e2058092badc33f8aeb0282222d95c6863c24e2bbdebed6a5162f8b17f"
+content-hash = "052b4e39d3ba077c681bc797e2435e3778602565649fc7e95984c0f2c24704a5"
 
 [metadata.files]
 appdirs = [
@@ -1051,8 +1051,8 @@ types-click = [
     {file = "types_click-7.1.5-py3-none-any.whl", hash = "sha256:3547c4346884551d8c5a6320aa26a26f16a3257aebd975843fdeb2cbaf156911"},
 ]
 types-requests = [
-    {file = "types-requests-2.25.6.tar.gz", hash = "sha256:e21541c0f55c066c491a639309159556dd8c5833e49fcde929c4c47bdb0002ee"},
-    {file = "types_requests-2.25.6-py3-none-any.whl", hash = "sha256:a5a305b43ea57bf64d6731f89816946a405b591eff6de28d4c0fd58422cee779"},
+    {file = "types-requests-2.25.7.tar.gz", hash = "sha256:4b279513a34b789bef75ce05bee5eb4ce934a892318388400f7511fbcdf56f87"},
+    {file = "types_requests-2.25.7-py3-none-any.whl", hash = "sha256:24bbe4682373ce0b1927f432b30ba1dcf46b66512fb6e848e72998c79797d040"},
 ]
 typing-extensions = [
     {file = "typing_extensions-3.7.4.3-py2-none-any.whl", hash = "sha256:dafc7639cde7f1b6e1acc0f457842a83e722ccca8eef5270af2d74792619a89f"},
