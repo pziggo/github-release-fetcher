@@ -37,4 +37,4 @@ def latest_release(owner: str = "", repository: str = "") -> Release:
             return Release(response.json())
     except (requests.RequestException, TypeError) as error:
         message = str(error)
-        raise click.ClickException(message)
+        raise click.ClickException(message) from error
