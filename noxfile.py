@@ -8,7 +8,7 @@ from nox.sessions import Session
 
 package: str = "github_release_fetcher"
 python: List[str] = ["3.10", "3.9", "3.8", "3.7"]
-locations = "src", "tests", "noxfile.py"
+locations = "github_release_fetcher", "tests", "noxfile.py"
 
 nox.options.sessions = "lint", "mypy", "safety", "tests"
 
