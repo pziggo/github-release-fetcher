@@ -10,7 +10,7 @@ keywords = ["github"]
 authors = ["Patrick Ziegler <ziggo@zaebos.de>"]
 
 [tool.poetry.dependencies]
-python = "^3.6.1"
+python = "^3.7"
 click = "^8.0.4"
 requests = "^2.27.1"
 

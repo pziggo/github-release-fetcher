@@ -7,7 +7,7 @@ import nox
 from nox.sessions import Session
 
 package: str = "github_release_fetcher"
-python: List[str] = ["3.9", "3.8", "3.7", "3.6"]
+python: List[str] = ["3.10", "3.9", "3.8", "3.7"]
 locations = "src", "tests", "noxfile.py"
 
 nox.options.sessions = "lint", "mypy", "safety", "tests"
@@ -28,7 +28,7 @@ def install_with_constraints(session: Session, *args: str, **kwargs: Any) -> Non
         session.install(f"--constraint={requirements.name}", *args, **kwargs)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.10"])
 def black(session: Session) -> None:
     """Run black code formatter."""
     args = session.posargs or locations
@@ -36,7 +36,7 @@ def black(session: Session) -> None:
     session.run("black", *args)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.10"])
 def coverage(session: Session) -> None:
     """Generate coverage data."""
     install_with_constraints(session, "coverage[toml]")
@@ -62,7 +62,7 @@ def lint(session: Session) -> None:
     session.run("flake8", *args)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.10"])
 def mypy(session: Session) -> None:
     """Run static type checks using mypy."""
     args = session.posargs or locations
@@ -70,7 +70,7 @@ def mypy(session: Session) -> None:
     session.run("mypy", *args)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.10"])
 def safety(session: Session) -> None:
     """Scan dependencies for insecure packages."""
     with tempfile.NamedTemporaryFile() as requirements:
@@ -96,7 +96,7 @@ def tests(session: Session) -> None:
     session.run("pytest", *args)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.10"])
 def typeguard(session: Session) -> None:
     """Run dynamic type checks with typeguard."""
     args = session.posargs or ["-m", "not e2e"]
@@ -105,7 +105,7 @@ def typeguard(session: Session) -> None:
     session.run("pytest", f"--typeguard-packages={package}", *args)
 
 
-@nox.session(python=["3.9"])
+@nox.session(python=["3.10"])
 def xdoctest(session: Session) -> None:
     """Run examples from docstring with xdoctest."""
     args = session.posargs or ["all"]
