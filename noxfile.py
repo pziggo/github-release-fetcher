@@ -19,7 +19,8 @@ def install_with_constraints(session: Session, *args: str, **kwargs: Any) -> Non
         session.run(
             "poetry",
             "export",
-            "--dev",
+            "--with",
+            "dev",
             "--format=requirements.txt",
             "--without-hashes",
             f"--output={requirements.name}",
@@ -77,7 +78,8 @@ def safety(session: Session) -> None:
         session.run(
             "poetry",
             "export",
-            "--dev",
+            "--with",
+            "dev",
             "--format=requirements.txt",
             "--without-hashes",
             f"--output={requirements.name}",
@@ -91,7 +93,7 @@ def safety(session: Session) -> None:
 def tests(session: Session) -> None:
     """Run the test suite, per default without E2E tests."""
     args = session.posargs or ["--cov", "-m", "not e2e"]
-    session.run("poetry", "install", "--no-dev", external=True)
+    session.run("poetry", "install", "--only", "main", external=True)
     install_with_constraints(session, "pytest", "pytest-cov", "pytest-mock")
     session.run("pytest", *args)
 
@@ -100,7 +102,7 @@ def tests(session: Session) -> None:
 def typeguard(session: Session) -> None:
     """Run dynamic type checks with typeguard."""
     args = session.posargs or ["-m", "not e2e"]
-    session.run("poetry", "install", "--no-dev", external=True)
+    session.run("poetry", "install", "--only", "main", external=True)
     install_with_constraints(session, "pytest", "pytest-mock", "typeguard")
     session.run("pytest", f"--typeguard-packages={package}", *args)
 
@@ -109,6 +111,6 @@ def typeguard(session: Session) -> None:
 def xdoctest(session: Session) -> None:
     """Run examples from docstring with xdoctest."""
     args = session.posargs or ["all"]
-    session.run("poetry", "install", "--no-dev", external=True)
+    session.run("poetry", "install", "--only", "main", external=True)
     install_with_constraints(session, "xdoctest")
     session.run("python", "-m", "xdoctest", package, *args)
