@@ -43,4 +43,4 @@ jobs:
         architecture: x64
     - run: pip install --constraint=.github/workflows/constraints.txt nox
     - run: pip install --constraint=.github/workflows/constraints.txt poetry
-    - run: nox
+    - run: nox --pythons '${{ matrix.python-version }}'
